@@ -1,1 +1,47 @@
-#BLANKFILE#
+#!/bin/bash
+
+jsonData=$(echo "$1" | base64 --decode > /opt/route48/json.data )
+
+jData=$( cat /opt/route48/json.data | jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]")
+for conf in ${jData}; do
+  eval ${conf}
+done
+
+#{
+#       "ASN": "139882",
+#       "ORG": "FusedIT.Trust",
+#       "PEER_ADDRESS": "2000:3000:4000:5000::2",
+#       "IPv6": ["2001:2002:2003:2004::\/48", "2005:2006:2007:2008::\/48"]
+#}
+# as base64 ewoJIkFTTiI6ICIxMzk4ODIiLAoJIk9SRyI6ICJGdXNlZElUIFRydXN0IiwKCSJQRUVSX0FERFJFU1MiOiAiMjAwMDozMDAwOjQwMDA6NTAwMDo6MiIsCgkiSVB2NiI6IFsiMjAwMToyMDAyOjIwMDM6MjAwNDo6XC80OCIsICIyMDA1OjIwMDY6MjAwNzoyMDA4OjpcLzQ4Il0KfQ==
+
+function create_new_session {
+ set -o pipefail # optional.
+        sed -i 's/REPLACE1/AS'$ASN'/g' /opt/route48/bird/PEERS/$ASN/peer_v6.conf
+        sed -i 's/REPLACE2/AS'$ASN'/g' /opt/route48/bird/PEERS/$ASN/peer_v6.conf
+        sed -i 's/REPLACE3/'$PEER_ADDRESS'/g' /opt/route48/bird/PEERS/$ASN/peer_v6.conf
+        sed -i 's/REPLACE4/'$ORG'/g' /opt/route48/bird/PEERS/$ASN/peer_v6.conf
+}
+
+function create_additional_session {
+ set -o pipefail # optional.
+        sed -i 's/REPLACE1/AS'$ASN'_TB'$1'/g' /opt/route48/bird/PEERS/$ASN/peer_v6.conf
+        sed -i 's/REPLACE2/AS'$ASN'/g' /opt/route48/bird/PEERS/$ASN/peer_v6.conf
+        sed -i 's/REPLACE3/'$PEER_ADDRESS'/g' /opt/route48/bird/PEERS/$ASN/peer_v6.conf
+        sed -i 's/REPLACE4/'$ORG'/g' /opt/route48/bird/PEERS/$ASN/peer_v6.conf
+
+}
+
+if [[ -e /opt/route48/bird/PEERS/$ASN/peer_v6.conf ]]; then
+        numSession=$(cat /opt/route48/bird/PEERS/$ASN/peer_v6.conf | grep 'protocol bgp' | wc -l)
+        declare -i numSession
+        cat /opt/route48/bird/TEMPLATES/tbPeer.conf >> /opt/route48/bird/PEERS/$ASN/peer_v6.conf
+        num=$(($numSession+1))
+                create_additional_session $num
+fi
+
+if [[ ! -e /opt/route48/bird/PEERS/$ASN/peer_v6.conf ]]; then
+        mkdir -p /opt/route48/bird/PEERS/$ASN/;
+        cp /opt/route48/bird/TEMPLATES/tbPeer.conf /opt/route48/bird/PEERS/$ASN/peer_v6.conf
+                create_new_session
+fi
