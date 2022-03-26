@@ -1,0 +1,4 @@
+protocol static prefixes {
+        import all;
+        route [Announced Route] reject;
+}
