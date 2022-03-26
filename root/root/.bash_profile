@@ -18,7 +18,7 @@ UPTIME=`printf "%d days, %02dh%02dm%02ds" "$days" "$hours" "$mins" "$secs"`
         clear
         echo ""
 		echo -e "\e[32m ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: \e[1m"
-figlet -f gangshit2.flf "ROUTE" -w 10000
+figlet -f gangshit2.flf "ROUTE" -w 10000 | lolcat
 		echo -e "\e[32m ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: \e[1m"
         echo -e "\e[1;35mSystem Uptime: $UPTIME \e[1m\e[0m"
         echo "IPv4: $v4Addr - IPv6: $v6Addr"
