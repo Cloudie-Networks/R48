@@ -43,6 +43,7 @@ apt-get -yq install \
   bird \
   figlet \
   lolcat \
+  wireguard \
   snmpd && \
   apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
@@ -62,6 +63,7 @@ apt-get -yq install \
  cat /opt/R48/root/root/.bash_profile >> /root/.bash_profile;
  
  mv /opt/R48/root/root/opt/route48/ /opt/route48/;
+ mv /opt/R48/root/root/var/lib/zerotier-one/local.conf /var/lib/zerotier-one/local.conf;
  rm -rf /opt/R48;
  rm -rf /opt/lolcat;
  
