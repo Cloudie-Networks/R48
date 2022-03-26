@@ -18,12 +18,10 @@ apt -qy install sysvinit-core sysvinit-utils inetutils-syslogd dropbear;
 
 	# Enable net.ipv4.ip_forward for the system
 		echo 'net.ipv4.ip_forward=1' > /etc/sysctl.d/30-route48-forward.conf
-	# Enable without waiting for a reboot or service restart
-		echo 1 > /proc/sys/net/ipv4/ip_forward
 	# Enable net.ipv6.conf.all.forwarding for the system
 		echo "net.ipv6.conf.all.forwarding=1" >> /etc/sysctl.d/30-route48-forward.conf
-	# Enable without waiting for a reboot or service restart
-		echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
+	# Enable net.ipv6.conf.all.forwarding for the system
+		echo "net.ipv6.conf.all.accept_ra=2" >> /etc/sysctl.d/30-route48-ra.conf
 	
 apt-get update -yq && \
 apt-get -yq install \
