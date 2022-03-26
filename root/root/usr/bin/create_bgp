@@ -7,13 +7,7 @@ for conf in ${jData}; do
   eval ${conf}
 done
 
-#{
-#       "ASN": "139882",
-#       "ORG": "FusedIT.Trust",
-#       "PEER_ADDRESS": "2000:3000:4000:5000::2",
-#       "IPv6": ["2001:2002:2003:2004::\/48", "2005:2006:2007:2008::\/48"]
-#}
-# as base64 ewoJIkFTTiI6ICIxMzk4ODIiLAoJIk9SRyI6ICJGdXNlZElUIFRydXN0IiwKCSJQRUVSX0FERFJFU1MiOiAiMjAwMDozMDAwOjQwMDA6NTAwMDo6MiIsCgkiSVB2NiI6IFsiMjAwMToyMDAyOjIwMDM6MjAwNDo6XC80OCIsICIyMDA1OjIwMDY6MjAwNzoyMDA4OjpcLzQ4Il0KfQ==
+#as base64  ewoJIkFTTiI6ICIxMzk4ODIiLAoJIk9SRyI6ICJGdXNlZElUIFRydXN0IiwKCSJQRUVSX0FERFJFU1MiOiAiMjAwMDozMDAwOjQwMDA6NTAwMDo6MiIsCgkiUFJFRklYRVMiOiAiMiIsCgkiUFJFRklYMSI6ICIyMDAxOjIwMDI6MjAwMzoyMDA0OjpcLzQ4IiwKCSJQUkVGSVgyIjogIjIwMDU6MjA>
 
 function create_new_session {
  set -o pipefail # optional.
