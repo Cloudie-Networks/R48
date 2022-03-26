@@ -1,0 +1,21 @@
+protocol bgp UPSTREAM_[PEERNAME]
+{
+         local as R48_ASN;
+         neighbor PEER_IPv6 as PEER_ASN;
+         multihop;
+         import filter
+         {
+                if transit_in(PEER_ASN) = true then accept;
+                reject;
+         };
+         export filter
+         {
+                if proto ="prefixes" then accept; #Send our prefixes first.. then below send all client routes.
+                if transit_out(PEER_ASN) = true && (65530,1000) ~ bgp_community then
+                {
+                        bgp_community.delete([(65530,*)]);
+                        accept;
+                }
+                reject;
+         };
+}
