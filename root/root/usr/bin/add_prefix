@@ -10,6 +10,7 @@ done
 cat /opt/route48/bird/TEMPLATES/tbPrefix-$PREFIXES.conf > /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
 
 #as base64 ewoJIkFTTiI6ICIxMzk4ODIiLAoJIk9SRyI6ICJGdXNlZElULlRydXN0IiwKCSJQRUVSX0FERFJFU1MiOiAiMjAwMDozMDAwOjQwMDA6NTAwMDo6MiIsCgkiUFJFRklYRVMiOiAiMiIsCgkiUFJFRklYMSI6ICIyMDAxOjIwMDI6MjAwMzoyMDA0OjpcLzQ4IiwKCSJQUkVGSVgyIjogIjIwMDU6MjAwNjoyMDA3OjIwMDg6OlwvNDgiCn0=
+
 function replace_text {
  set -o pipefail # optional.
                 sed -i 's/REPLACE0/AS'$ASN'/g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
@@ -31,4 +32,13 @@ function replace_text {
         fi
 }
 
+function refresh_bird {
+ set -o pipefail # optional.
+       /etc/init.d/bird6c configure soft;
+       /etc/init.d/birdc configure soft;
+
+}
+
 replace_text $PREFIXES
+
+refresh_bird
