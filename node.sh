@@ -57,6 +57,9 @@ apt-get -yq install \
  rm -rf /opt/R48;
  
  
+ UUID=$(cat /proc/sys/kernel/random/uuid) 
+ echo $UUID > /opt/route48/api.key
+ 
 cat > /etc/default/dropbear << "EOF"
 # the TCP port that Dropbear listens on
 DROPBEAR_PORT=9092
