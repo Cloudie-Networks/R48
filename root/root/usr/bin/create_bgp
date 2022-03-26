@@ -26,6 +26,13 @@ function create_additional_session {
 
 }
 
+function refresh_bird {
+ set -o pipefail # optional.
+       /etc/init.d/bird6c configure soft;
+       /etc/init.d/birdc configure soft;
+
+}
+
 if [[ -e /opt/route48/bird/PEERS/$ASN/peer_v6.conf ]]; then
         numSession=$(cat /opt/route48/bird/PEERS/$ASN/peer_v6.conf | grep 'protocol bgp' | wc -l)
         declare -i numSession
@@ -39,3 +46,5 @@ if [[ ! -e /opt/route48/bird/PEERS/$ASN/peer_v6.conf ]]; then
         cp /opt/route48/bird/TEMPLATES/tbPeer.conf /opt/route48/bird/PEERS/$ASN/peer_v6.conf
                 create_new_session
 fi
+
+refresh_bird
