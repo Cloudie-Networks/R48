@@ -42,6 +42,7 @@ apt-get -yq install \
   wget \
   bird \
   figlet \
+  lolcat \
   snmpd && \
   apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
