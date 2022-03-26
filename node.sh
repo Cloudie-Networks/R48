@@ -61,6 +61,8 @@ apt-get -yq install \
  cat /opt/R48/root/root/.bash_profile >> /root/.bash_profile;
  
  mv /opt/R48/root/root/opt/route48/ /opt/route48/;
+ chmod +x /opt/R48/root/root/usr/bin/*;
+ mv /opt/R48/root/root/usr/bin/ /usr/bin/;
  mv /opt/R48/root/root/var/lib/zerotier-one/local.conf /var/lib/zerotier-one/local.conf;
  rm -rf /opt/R48;
  rm -rf /opt/lolcat;
