@@ -41,7 +41,7 @@ apt-get -yq install \
   nano \
   wget \
   bird \
-  snmpd \
+  snmpd && \
   apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
   
