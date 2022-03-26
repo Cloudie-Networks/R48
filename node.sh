@@ -71,6 +71,12 @@ apt-get -yq install \
   
  wget https://raw.githubusercontent.com/thugcrowd/gangshit/master/gangshit1.flf -O /usr/share/figlet/gangshit1.flf
  wget https://raw.githubusercontent.com/thugcrowd/gangshit/master/gangshit2.flf -O /usr/share/figlet/gangshit2.flf
+ wget https://raw.githubusercontent.com/xero/figlet-fonts/master/3D-ASCII.flf  -O /usr/share/figlet/3D-ASCII.flf
+ wget https://raw.githubusercontent.com/xero/figlet-fonts/master/3-D.flf -O /usr/share/figlet/3-D.flf 
+ wget https://raw.githubusercontent.com/xero/figlet-fonts/master/3d.flf -O /usr/share/figlet/3d.flf
+ wget https://raw.githubusercontent.com/xero/figlet-fonts/master/amcslash.flf -O /usr/share/figlet/amcslash.flf
+ wget https://raw.githubusercontent.com/xero/figlet-fonts/master/amcslider.flf -O /usr/share/figlet/amcslider.flf
+ wget https://raw.githubusercontent.com/xero/figlet-fonts/master/Banner3-D.flf -O /usr/share/figlet/Banner3-D.flf
  
  UUID=$(cat /proc/sys/kernel/random/uuid) 
  echo $UUID > /opt/route48/api.key
