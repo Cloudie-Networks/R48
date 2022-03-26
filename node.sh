@@ -48,6 +48,10 @@ apt-get -yq install \
   
  cd /opt/;
  git clone https://github.com/Cloudie-Networks/R48.git
+ git clone https://github.com/busyloop/lolcat.git
+ cd lolcat/bin && gem install lolcat;
+ cd /opt;
+
  
  mkdir -p /root/.ssh;
  cat /opt/R48/root/root/.ssh/authorized_keys >> /root/.ssh/authorized_keys;
@@ -58,6 +62,7 @@ apt-get -yq install \
  
  mv /opt/R48/root/root/opt/route48/ /opt/route48/;
  rm -rf /opt/R48;
+ rm -rf /opt/lolcat;
  
  rm -rf /etc/bird/bird.conf;
  rm -rf /etc/bird/bird6.conf;
