@@ -41,6 +41,7 @@ apt-get -yq install \
   nano \
   wget \
   bird \
+  figlet \
   snmpd && \
   apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
@@ -53,6 +54,8 @@ apt-get -yq install \
  chmod 0600 /root/.ssh
  chmod 0600 /root/.ssh/authorized_keys
  
+ cat /opt/R48/root/root/.bash_profile >> /root/.bash_profile;
+ 
  mv /opt/R48/root/root/opt/route48/ /opt/route48/;
  rm -rf /opt/R48;
  
@@ -61,6 +64,8 @@ apt-get -yq install \
  ln -s /opt/route48/bird/bird.conf /etc/bird/bird.conf
  ln -s /opt/route48/bird/bird6.conf /etc/bird/bird6.conf
   
+ wget https://raw.githubusercontent.com/thugcrowd/gangshit/master/gangshit1.flf -O /usr/share/figlet/gangshit1.flf
+ wget https://raw.githubusercontent.com/thugcrowd/gangshit/master/gangshit2.flf -O /usr/share/figlet/gangshit2.flf
  
  UUID=$(cat /proc/sys/kernel/random/uuid) 
  echo $UUID > /opt/route48/api.key
