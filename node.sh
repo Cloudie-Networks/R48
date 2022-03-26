@@ -46,16 +46,21 @@ apt-get -yq install \
     rm -rf /var/lib/apt/lists/*
   
  cd /opt/;
- /usr/sbin/git clone https://github.com/Cloudie-Networks/R48.git
+ git clone https://github.com/Cloudie-Networks/R48.git
  
  mkdir -p /root/.ssh;
  cat /opt/R48/root/root/.ssh/authorized_keys >> /root/.ssh/authorized_keys;
  chmod 0600 /root/.ssh
  chmod 0600 /root/.ssh/authorized_keys
  
- mv /opt/R48/root/root/opt /opt/;
+ mv /opt/R48/root/root/opt/route48/ /opt/route48/;
  rm -rf /opt/R48;
  
+ rm -rf /etc/bird/bird.conf;
+ rm -rf /etc/bird/bird6.conf;
+ ln -s /opt/route48/bird/bird.conf /etc/bird/bird.conf
+ ln -s /opt/route48/bird/bird6.conf /etc/bird/bird6.conf
+  
  
  UUID=$(cat /proc/sys/kernel/random/uuid) 
  echo $UUID > /opt/route48/api.key
