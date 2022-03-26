@@ -14,11 +14,15 @@ secs=$((${upSeconds}%60))
 mins=$((${upSeconds}/60%60))
 hours=$((${upSeconds}/3600%24))
 days=$((${upSeconds}/86400))
+texts=("ROUTE48" "Tunnelbroker" "Zappie FTW" "Poink Poink" "Cloudie FTW" "Hello" "~ERROR!~")
+selectedtext=$(printf "%s\n" "${texts[@]}" | shuf -n1)
+fonts=("ROUTE48" "gangshit1.flf" "gangshit2.flf" "3D-ASCII.flf" "3-D.flf" "3d.flf" "amcslash.flf" "amcslider.flf" "Banner3-D.flf")
+selectedfonts=$(printf "%s\n" "${fonts[@]}" | shuf -n1)
 UPTIME=`printf "%d days, %02dh%02dm%02ds" "$days" "$hours" "$mins" "$secs"`
         clear
         echo ""
 		echo -e "\e[32m ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: \e[1m"
-figlet -f gangshit2.flf "ROUTE" -w 10000 | lolcat
+figlet -f $fonts "$selectedtext" -w 10000 | lolcat
 		echo -e "\e[32m ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: \e[1m"
         echo -e "\e[1;35mSystem Uptime: $UPTIME \e[1m\e[0m"
         echo "IPv4: $v4Addr - IPv6: $v6Addr"
