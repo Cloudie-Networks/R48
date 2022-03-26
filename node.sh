@@ -40,6 +40,7 @@ apt-get -yq install \
   wget \
   bird \
   figlet \
+  jq \
   lolcat \
   wireguard \
   snmpd && \
