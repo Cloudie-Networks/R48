@@ -1,1 +1,35 @@
-#BLANKFILE#
+#!/bin/bash
+
+jsonData=$(echo "$1" | base64 --decode > /opt/route48/json.data )
+
+jData=$( cat /opt/route48/json.data | jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]")
+for conf in ${jData}; do
+  eval ${conf}
+done
+
+cat /opt/route48/bird/TEMPLATES/tbPrefix-$PREFIXES.conf > /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+
+#as base64  ewoJIkFTTiI6ICIxMzk4ODIiLAoJIk9SRyI6ICJGdXNlZElUIFRydXN0IiwKCSJQRUVSX0FERFJFU1MiOiAiMjAwMDozMDAwOjQwMDA6NTAwMDo6MiIsCgkiUFJFRklYRVMiOiAiMiIsCgkiUFJFRklYMSI6ICIyMDAxOjIwMDI6MjAwMzoyMDA0OjpcLzQ4IiwKCSJQUkVGSVgyIjogIjIwMDU6MjA>
+
+function replace_text {
+ set -o pipefail # optional.
+                sed -i 's/REPLACE0/AS'$ASN'/g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+
+        if [ ${PREFIX1} ]; then
+                sed -i 's^REPLACE1^'${PREFIX1}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX2} ]; then
+                sed -i 's^REPLACE2^'${PREFIX2}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX3} ]; then
+                sed -i 's^REPLACE3^'${PREFIX3}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX4} ]; then
+                sed -i 's^REPLACE4^'${PREFIX4}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX5} ]; then
+                sed -i 's^REPLACE5^'${PREFIX5}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+}
+
+replace_text $PREFIXES
