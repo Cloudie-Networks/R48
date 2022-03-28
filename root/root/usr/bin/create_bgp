@@ -28,9 +28,8 @@ function create_additional_session {
 
 function refresh_bird {
  set -o pipefail # optional.
-       /etc/init.d/bird6c configure soft;
-       /etc/init.d/birdc configure soft;
-
+       /usr/sbin/bird6c configure soft;
+       /usr/sbin/birdc configure soft;
 }
 
 if [[ -e /opt/route48/bird/PEERS/$ASN/peer_v6.conf ]]; then
