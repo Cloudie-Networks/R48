@@ -45,6 +45,126 @@ function replace_text {
         if [ ${PREFIX10} ]; then
                 sed -i 's^REPLACE5^'${PREFIX10}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
         fi
+        if [ ${PREFIX11} ]; then
+                sed -i 's^REPLACE1^'${PREFIX11}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX12} ]; then
+                sed -i 's^REPLACE2^'${PREFIX12}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX13} ]; then
+                sed -i 's^REPLACE3^'${PREFIX13}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX14} ]; then
+                sed -i 's^REPLACE4^'${PREFIX14}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX15} ]; then
+                sed -i 's^REPLACE5^'${PREFIX15}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX16} ]; then
+                sed -i 's^REPLACE5^'${PREFIX16}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX17} ]; then
+                sed -i 's^REPLACE5^'${PREFIX17}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX18} ]; then
+                sed -i 's^REPLACE5^'${PREFIX18}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX19} ]; then
+                sed -i 's^REPLACE5^'${PREFIX19}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX20} ]; then
+                sed -i 's^REPLACE5^'${PREFIX20}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX21} ]; then
+                sed -i 's^REPLACE1^'${PREFIX21}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX22} ]; then
+                sed -i 's^REPLACE2^'${PREFIX22}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX23} ]; then
+                sed -i 's^REPLACE3^'${PREFIX23}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX24} ]; then
+                sed -i 's^REPLACE4^'${PREFIX24}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX25} ]; then
+                sed -i 's^REPLACE5^'${PREFIX25}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX26} ]; then
+                sed -i 's^REPLACE5^'${PREFIX26}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX27} ]; then
+                sed -i 's^REPLACE5^'${PREFIX27}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX28} ]; then
+                sed -i 's^REPLACE5^'${PREFIX28}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX29} ]; then
+                sed -i 's^REPLACE5^'${PREFIX29}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX30} ]; then
+                sed -i 's^REPLACE5^'${PREFIX30}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX31} ]; then
+                sed -i 's^REPLACE1^'${PREFIX31}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX32} ]; then
+                sed -i 's^REPLACE2^'${PREFIX32}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX33} ]; then
+                sed -i 's^REPLACE3^'${PREFIX33}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX34} ]; then
+                sed -i 's^REPLACE4^'${PREFIX34}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX35} ]; then
+                sed -i 's^REPLACE5^'${PREFIX35}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX36} ]; then
+                sed -i 's^REPLACE5^'${PREFIX36}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX37} ]; then
+                sed -i 's^REPLACE5^'${PREFIX37}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX38} ]; then
+                sed -i 's^REPLACE5^'${PREFIX38}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX39} ]; then
+                sed -i 's^REPLACE5^'${PREFIX39}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX40} ]; then
+                sed -i 's^REPLACE5^'${PREFIX40}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX41} ]; then
+                sed -i 's^REPLACE1^'${PREFIX41}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX42} ]; then
+                sed -i 's^REPLACE2^'${PREFIX42}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX43} ]; then
+                sed -i 's^REPLACE3^'${PREFIX43}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX44} ]; then
+                sed -i 's^REPLACE4^'${PREFIX44}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX45} ]; then
+                sed -i 's^REPLACE5^'${PREFIX45}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX46} ]; then
+                sed -i 's^REPLACE5^'${PREFIX46}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX47} ]; then
+                sed -i 's^REPLACE5^'${PREFIX47}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX48} ]; then
+                sed -i 's^REPLACE5^'${PREFIX48}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX49} ]; then
+                sed -i 's^REPLACE5^'${PREFIX49}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX50} ]; then
+                sed -i 's^REPLACE5^'${PREFIX50}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
 }
 
 function refresh_bird {
