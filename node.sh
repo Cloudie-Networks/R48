@@ -43,6 +43,7 @@ apt-get -yq install \
   jq \
   lolcat \
   wireguard \
+  python3-pip \
   snmpd && \
   apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
@@ -51,6 +52,7 @@ apt-get -yq install \
  git clone https://github.com/Cloudie-Networks/R48.git
  git clone https://github.com/busyloop/lolcat.git
  cd lolcat/bin && gem install lolcat;
+ pip3 install flask;
  cd /opt;
 
  
@@ -72,6 +74,16 @@ apt-get -yq install \
  rm -rf /etc/bird/bird6.conf;
  ln -s /opt/route48/bird/bird.conf /etc/bird/bird.conf
  ln -s /opt/route48/bird/bird6.conf /etc/bird/bird6.conf
+ 
+ #Install ZeroTier
+curl -L -o /tmp/zerotier-install.sh https://install.zerotier.com/ && \
+	bash /tmp/zerotier-install.sh || exit 0
+	
+/usr/sbin/zerotier-cli join ;
+/usr/sbin/zerotier-cli set allowGlobal=true;
+
+(crontab -l 2>/dev/null; echo "@reboot sleep 90 && /usr/bin/nohup /usr/bin/python3 /opt/route48/bird-lg/lgproxy.py &") | crontab -;
+(crontab -l 2>/dev/null; echo "@reboot sleep 90 && /bin/bash /opt/route48/tunnels/scripts/reconnect_tunnel.sh") | crontab -;
   
  wget https://raw.githubusercontent.com/thugcrowd/gangshit/master/gangshit1.flf -O /usr/share/figlet/gangshit1.flf
  wget https://raw.githubusercontent.com/thugcrowd/gangshit/master/gangshit2.flf -O /usr/share/figlet/gangshit2.flf
@@ -79,7 +91,7 @@ apt-get -yq install \
  wget https://raw.githubusercontent.com/xero/figlet-fonts/master/3-D.flf -O /usr/share/figlet/3-D.flf 
  wget https://raw.githubusercontent.com/xero/figlet-fonts/master/3d.flf -O /usr/share/figlet/3d.flf
  wget https://raw.githubusercontent.com/xero/figlet-fonts/master/amcslash.flf -O /usr/share/figlet/amcslash.flf
- wget https://raw.githubusercontent.com/xero/figlet-fonts/master/amcslider.flf -O /usr/share/figlet/amcslider.flf
+ wget https://raw.githubusercontent.com/xero/figlet-fonts/master/AMC%20Slider.flf -O /usr/share/figlet/amcslider.flf
  wget https://raw.githubusercontent.com/xero/figlet-fonts/master/Banner3-D.flf -O /usr/share/figlet/Banner3-D.flf
  
  UUID=$(cat /proc/sys/kernel/random/uuid) 
