@@ -80,8 +80,8 @@ apt-get -yq install \
 curl -L -o /tmp/zerotier-install.sh https://install.zerotier.com/ && \
 	bash /tmp/zerotier-install.sh || exit 0
 	
-/usr/sbin/zerotier-cli join 1d7193940491bba0;
-/usr/sbin/zerotier-cli set 1d7193940491bba0 allowGlobal=true;
+/usr/sbin/zerotier-cli join 34f33c64795cfb6b;
+/usr/sbin/zerotier-cli set 34f33c64795cfb6b allowGlobal=true;
 
  rm -rf /opt/R48;
  rm -rf /opt/lolcat;
