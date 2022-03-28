@@ -1,0 +1,43 @@
+/usr/bin/configure_prefix
+
+json + base64 argument to script as below;
+
+ewoJIkFTTiI6ICIxMzk4ODIiLAoJIk9SRyI6ICJGdXNlZElULlRydXN0IiwKCSJQRUVSX0FERFJFU1MiOiAiMjAwMDozMDAwOjQwMDA6NTAwMDo6MiIsCgkiUFJFRklYRVMiOiAiMiIsCgkiUFJFRklYMSI6ICIyMDAxOjIwMDI6MjAwMzoyMDA0OjpcLzQ4IiwKCSJQUkVGSVgyIjogIjIwMDU6MjAwNjoyMDA3OjIwMDg6OlwvNDgiCn0=
+
+[decoded]
+
+{
+	"ASN": "139882",
+	"ORG": "FusedIT.Trust",
+	"PEER_ADDRESS": "2000:3000:4000:5000::2",
+	"PREFIXES": "2",
+	"PREFIX1": "2001:2002:2003:2004::\/48",
+	"PREFIX2": "2005:2006:2007:2008::\/48"
+}
+
+Each IP address (up to 50), must be listed in this entry. this will allow all of them, to have BGP Transit on each BGP Session. 
+Prefixes entry MUST be correct.
+
+/usr/bin/configure_transit
+
+json + base64 argument to script as below;
+
+ewoJIkFTTiI6ICIxMzk4ODIiLAoJIk9SRyI6ICJGdXNlZElULlRydXN0IiwKCSJQRUVSX0FERFJFU1MiOiAiMjAwMDozMDAwOjQwMDA6NTAwMDo6MiIsCgkiUFJFRklYRVMiOiAiMiIsCgkiUFJFRklYMSI6ICIyMDAxOjIwMDI6MjAwMzoyMDA0OjpcLzQ4IiwKCSJQUkVGSVgyIjogIjIwMDU6MjAwNjoyMDA3OjIwMDg6OlwvNDgiCn0=
+
+[decoded]
+
+{
+	"ASN": "139882",
+	"ORG": "FusedIT.Trust",
+	"PEER_ADDRESS": "2000:3000:4000:5000::2",
+	"PREFIXES": "2",
+	"PREFIX1": "2001:2002:2003:2004::\/48",
+	"PREFIX2": "2005:2006:2007:2008::\/48"
+}
+
+*CURRENTLY* will only setup initial BGP session, will not allow PREFIXES, this at current, must be done on separate call. but will be intergrated by launch.
+
+This can be run multiple times, as long as PEER_ADDRESS changes per attempt.
+
+*NO SPACES OR SPECIAL CHARS IN ORG*
+
