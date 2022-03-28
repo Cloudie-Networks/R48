@@ -65,10 +65,11 @@ apt-get -yq install \
  
  mv /opt/R48/root/root/opt/route48/ /opt/route48/;
  chmod +x /opt/R48/root/root/usr/bin/*;
- mv /opt/R48/root/root/usr/bin/ /usr/bin/;
+ mv /opt/R48/root/root/usr/bin/* /usr/bin/;
  mv /opt/R48/root/root/var/lib/zerotier-one/local.conf /var/lib/zerotier-one/local.conf;
- rm -rf /opt/R48;
- rm -rf /opt/lolcat;
+ rm -rf /etc/snmp/snmpd.conf;
+ mv /opt/R48/root/root/etc/snmp/snmpd.conf /etc/snmp/snmpd.conf;
+
  
  rm -rf /etc/bird/bird.conf;
  rm -rf /etc/bird/bird6.conf;
@@ -79,8 +80,11 @@ apt-get -yq install \
 curl -L -o /tmp/zerotier-install.sh https://install.zerotier.com/ && \
 	bash /tmp/zerotier-install.sh || exit 0
 	
-/usr/sbin/zerotier-cli join ;
-/usr/sbin/zerotier-cli set allowGlobal=true;
+/usr/sbin/zerotier-cli join 1d7193940491bba0;
+/usr/sbin/zerotier-cli set 1d7193940491bba0 allowGlobal=true;
+
+ rm -rf /opt/R48;
+ rm -rf /opt/lolcat;
 
 (crontab -l 2>/dev/null; echo "@reboot sleep 90 && /usr/bin/nohup /usr/bin/python3 /opt/route48/bird-lg/lgproxy.py &") | crontab -;
 (crontab -l 2>/dev/null; echo "@reboot sleep 90 && /bin/bash /opt/route48/tunnels/scripts/reconnect_tunnel.sh") | crontab -;
