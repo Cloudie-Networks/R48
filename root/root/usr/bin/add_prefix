@@ -30,6 +30,21 @@ function replace_text {
         if [ ${PREFIX5} ]; then
                 sed -i 's^REPLACE5^'${PREFIX5}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
         fi
+        if [ ${PREFIX6} ]; then
+                sed -i 's^REPLACE5^'${PREFIX6}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX7} ]; then
+                sed -i 's^REPLACE5^'${PREFIX7}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX8} ]; then
+                sed -i 's^REPLACE5^'${PREFIX8}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX9} ]; then
+                sed -i 's^REPLACE5^'${PREFIX9}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
+        if [ ${PREFIX10} ]; then
+                sed -i 's^REPLACE5^'${PREFIX10}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+        fi
 }
 
 function refresh_bird {
