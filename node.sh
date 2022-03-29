@@ -22,8 +22,6 @@ apt -qy install sysvinit-core sysvinit-utils inetutils-syslogd dropbear;
 		echo "net.ipv6.conf.all.forwarding=1" >> /etc/sysctl.d/30-route48-forward.conf
 	# Enable net.ipv6.conf.all.forwarding for the system
 		echo "net.ipv6.conf.all.accept_ra=2" >> /etc/sysctl.d/30-route48-ra.conf
-apt-get -qy install php-cgi php-mbstring php-xml unzip;
- apt-get -qy install lighttpd;
 apt-get update -yq && \
 apt-get -yq install \
   apt-transport-https \
@@ -64,26 +62,11 @@ apt-get -yq install \
  
  cat /opt/R48/root/root/.bash_profile >> /root/.bash_profile;
  
- 
- cd /opt/;
- wget https://github.com/inex/birdseye/releases/download/v1.2.2/birdseye-v1.2.2.tar.bz2;
- tar jxf birdseye-v1.2.2.tar.bz2;
- mv birdseye-v1.2.2 birdseye;
-cd birdseye;
-chown -R www-data: storage;
+ cd /opt;
+git clone https://github.com/ecix/birdseye
+cd birdseye/
 
-lighty-enable-mod fastcgi;
-lighty-enable-mod fastcgi-php;
-echo -e "www-data        ALL=(ALL)       NOPASSWD: /opt/birdseye/bin/birdc\n" >/etc/sudoers.d/99-birdseye;
-
-echo "BIRDC=\"/usr/bin/sudo /opt/birdseye/bin/birdc -4 -s /var/run/bird/bird.ctl\"" > /opt/birdseye/route48.ipv4.env;
-echo "BIRDC=\"/usr/bin/sudo /opt/birdseye/bin/birdc -6 -s /var/run/bird/bird6.ctl\"" > /opt/birdseye/route48.ipv6.env;
-
-echo "CACHE_DRIVER=file" >> /opt/birdseye/route48.ipv4.env;
-echo "CACHE_DRIVER=file" >> /opt/birdseye/route48.ipv6.env;
-
-echo "LOOKING_GLASS_ENABLED=true" >> /opt/birdseye/route48.ipv4.env;
-echo "LOOKING_GLASS_ENABLED=true" >> /opt/birdseye/route48.ipv6.env;
+./bin/venv_init
 
  
  
