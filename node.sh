@@ -63,6 +63,31 @@ apt-get -yq install \
  
  cat /opt/R48/root/root/.bash_profile >> /root/.bash_profile;
  
+ 
+ #THIS START
+ apt-get -qy install php-cgi php-mbstring php-xml unzip;
+ cd /opt/;
+ wget https://github.com/inex/birdseye/releases/download/v1.2.2/birdseye-v1.2.2.tar.bz2;
+ tar jxf birdseye-v1.2.2.tar.bz2;
+ mv birdseye-v1.2.2 birdseye;
+cd birdseye;
+chown -R www-data: storage;
+apt-get -qy install lighttpd;
+lighty-enable-mod fastcgi;
+lighty-enable-mod fastcgi-php;
+echo -e "www-data        ALL=(ALL)       NOPASSWD: /opt/birdseye/bin/birdc\n" >/etc/sudoers.d/99-birdseye
+
+echo "BIRDC=\"/usr/bin/sudo /opt/birdseye/bin/birdc -4 -s /var/run/bird/bird.ctl\"" > /opt/birdseye/route48.ipv4.env
+echo "BIRDC=\"/usr/bin/sudo /opt/birdseye/bin/birdc -6 -s /var/run/bird/bird6.ctl\"" > /opt/birdseye/route48.ipv6.env
+
+echo "CACHE_DRIVER=file" >> /opt/birdseye/route48.ipv4.env
+echo "CACHE_DRIVER=file" >> /opt/birdseye/route48.ipv6.env
+
+echo "LOOKING_GLASS_ENABLED=true" >> /opt/birdseye/route48.ipv4.env
+echo "LOOKING_GLASS_ENABLED=true" >> /opt/birdseye/route48.ipv6.env
+ #THISEND
+ 
+ 
  mv /opt/R48/root/root/opt/route48/ /opt/route48/;
  chmod +x /opt/R48/root/root/usr/bin/*;
  mv /opt/R48/root/root/usr/bin/* /usr/bin/;
