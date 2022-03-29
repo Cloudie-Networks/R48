@@ -22,7 +22,8 @@ apt -qy install sysvinit-core sysvinit-utils inetutils-syslogd dropbear;
 		echo "net.ipv6.conf.all.forwarding=1" >> /etc/sysctl.d/30-route48-forward.conf
 	# Enable net.ipv6.conf.all.forwarding for the system
 		echo "net.ipv6.conf.all.accept_ra=2" >> /etc/sysctl.d/30-route48-ra.conf
-	
+apt-get -qy install php-cgi php-mbstring php-xml unzip;
+ apt-get -qy install lighttpd;
 apt-get update -yq && \
 apt-get -yq install \
   apt-transport-https \
@@ -63,14 +64,14 @@ apt-get -yq install \
  
  cat /opt/R48/root/root/.bash_profile >> /root/.bash_profile;
  
- apt-get -qy install php-cgi php-mbstring php-xml unzip;
+ 
  cd /opt/;
  wget https://github.com/inex/birdseye/releases/download/v1.2.2/birdseye-v1.2.2.tar.bz2;
  tar jxf birdseye-v1.2.2.tar.bz2;
  mv birdseye-v1.2.2 birdseye;
 cd birdseye;
 chown -R www-data: storage;
-apt-get -qy install lighttpd;
+
 lighty-enable-mod fastcgi;
 lighty-enable-mod fastcgi-php;
 echo -e "www-data        ALL=(ALL)       NOPASSWD: /opt/birdseye/bin/birdc\n" >/etc/sudoers.d/99-birdseye;
