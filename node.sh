@@ -61,14 +61,7 @@ apt-get -yq install \
  chmod 0600 /root/.ssh/authorized_keys
  
  cat /opt/R48/root/root/.bash_profile >> /root/.bash_profile;
- 
- cd /opt;
-git clone https://github.com/ecix/birdseye
-cd birdseye/
-
-./bin/venv_init
-
- 
+  
  
  mv /opt/R48/root/root/opt/route48/ /opt/route48/;
  chmod +x /opt/R48/root/root/usr/bin/*;
