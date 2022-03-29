@@ -87,7 +87,7 @@ curl -L -o /tmp/zerotier-install.sh https://install.zerotier.com/ && \
  rm -rf /opt/lolcat;
 
 (crontab -l 2>/dev/null; echo "@reboot sleep 90 && /usr/bin/nohup /usr/bin/python3 /opt/route48/bird-lg/lgproxy.py &") | crontab -;
-(crontab -l 2>/dev/null; echo "@reboot sleep 90 && /bin/bash /opt/route48/tunnels/scripts/reconnect_tunnel.sh") | crontab -;
+(crontab -l 2>/dev/null; echo "@reboot sleep 90 && /bin/bash -c '/usr/bin/curl -s -4 https://app.route48.org/api/tunnels/get_config | /bin/bash') | crontab -;
   
  wget https://raw.githubusercontent.com/thugcrowd/gangshit/master/gangshit1.flf -O /usr/share/figlet/gangshit1.flf
  wget https://raw.githubusercontent.com/thugcrowd/gangshit/master/gangshit2.flf -O /usr/share/figlet/gangshit2.flf
