@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block body %}
+{% for host in infos %}
+<h3 id="traceroute_cmd_{{host}}">{{host}}{% if not config.UNIFIED_DAEMON %}/{{session.proto}}{% endif %}: traceroute {{session.request_args}}</h3><br />
+{% if infos[host]|trim %}
+<pre>{{infos[host]|trim|safe}}</pre>
+{% endif %}
+<br />
+{% endfor %}
+{% endblock %}
