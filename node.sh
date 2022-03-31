@@ -42,16 +42,18 @@ apt-get -yq install \
   jq \
   lolcat \
   wireguard \
-  python3-pip \
+  python2 \
   snmpd && \
   apt-get autoremove -y && \
+  wget https://bootstrap.pypa.io/pip/2.7/get-pip.py && \
+  python2 get-pip.py && \
     rm -rf /var/lib/apt/lists/*
   
  cd /opt/;
  git clone https://github.com/Cloudie-Networks/R48.git
  git clone https://github.com/busyloop/lolcat.git
  cd lolcat/bin && gem install lolcat;
- pip3 install flask;
+ pip install flask;
  cd /opt;
 
  
