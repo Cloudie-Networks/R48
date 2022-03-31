@@ -11,18 +11,18 @@ done
 
 function create_new_session {
  set -o pipefail # optional.
-        sed -i 's/REPLACE1/AS'$ASN'/g' /opt/route48/bird/PEERS/$ASN/peer_v6.conf
-        sed -i 's/REPLACE2/AS'$ASN'/g' /opt/route48/bird/PEERS/$ASN/peer_v6.conf
-        sed -i 's/REPLACE3/'$PEER_ADDRESS'/g' /opt/route48/bird/PEERS/$ASN/peer_v6.conf
-        sed -i 's/REPLACE4/'$ORG'/g' /opt/route48/bird/PEERS/$ASN/peer_v6.conf
+        sed -i "s/REPLACE1/${$ASN}/g" /opt/route48/bird/PEERS/$ASN/peer_v6.conf
+        sed -i "s/REPLACE2/${$ASN}/g" /opt/route48/bird/PEERS/$ASN/peer_v6.conf
+        sed -i "s/REPLACE3/${$PEER_ADDRESS}/g" /opt/route48/bird/PEERS/$ASN/peer_v6.conf
+        sed -i "s/REPLACE4/${$ORG}/g" /opt/route48/bird/PEERS/$ASN/peer_v6.conf
 }
 
 function create_additional_session {
  set -o pipefail # optional.
-        sed -i 's/REPLACE1/AS'$ASN'_TB'$1'/g' /opt/route48/bird/PEERS/$ASN/peer_v6.conf
-        sed -i 's/REPLACE2/AS'$ASN'/g' /opt/route48/bird/PEERS/$ASN/peer_v6.conf
-        sed -i 's/REPLACE3/'$PEER_ADDRESS'/g' /opt/route48/bird/PEERS/$ASN/peer_v6.conf
-        sed -i 's/REPLACE4/'$ORG'/g' /opt/route48/bird/PEERS/$ASN/peer_v6.conf
+        sed -i "s/REPLACE1/${$ASN}_TB/g" /opt/route48/bird/PEERS/$ASN/peer_v6.conf
+        sed -i "s/REPLACE2/${$ASN}/g" /opt/route48/bird/PEERS/$ASN/peer_v6.conf
+        sed -i "s/REPLACE3/${$PEER_ADDRESS}/g" /opt/route48/bird/PEERS/$ASN/peer_v6.conf
+        sed -i "s/REPLACE4/${$ORG}/g" /opt/route48/bird/PEERS/$ASN/peer_v6.conf
 
 }
 

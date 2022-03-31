@@ -14,7 +14,7 @@ cat /opt/route48/bird/TEMPLATES/tbPrefix-$PREFIXES.conf > /opt/route48/bird/PEER
 
 function replace_text {
  set -o pipefail # optional.
-                sed -i 's/REPLACE0/AS'$ASN'/g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
+                sed -i "s/REPLACE0/AS${ASN}/g" /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
 
         if [ ${PREFIX1} ]; then
                 sed -i 's^REPLACE1^'${PREFIX1}'^g' /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
