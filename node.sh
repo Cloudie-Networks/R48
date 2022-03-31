@@ -72,8 +72,9 @@ apt-get -yq install \
  mv /opt/R48/root/root/var/lib/zerotier-one/local.conf /var/lib/zerotier-one/local.conf;
  rm -rf /etc/snmp/snmpd.conf;
  mv /opt/R48/root/root/etc/snmp/snmpd.conf /etc/snmp/snmpd.conf;
+ curl -o /usr/bin/distro https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
+ chmod +x /usr/bin/distro
 
- 
  rm -rf /etc/bird/bird.conf;
  rm -rf /etc/bird/bird6.conf;
  ln -s /opt/route48/bird/bird.conf /etc/bird/bird.conf

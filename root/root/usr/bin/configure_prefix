@@ -7,6 +7,7 @@ for conf in ${jData}; do
   eval ${conf}
 done
 
+mkdir -p /opt/route48/bird/PEERS/$ASN/
 cat /opt/route48/bird/TEMPLATES/tbPrefix-$PREFIXES.conf > /opt/route48/bird/PEERS/$ASN/prefix_v6.conf
 
 #as base64 ewoJIkFTTiI6ICIxMzk4ODIiLAoJIk9SRyI6ICJGdXNlZElULlRydXN0IiwKCSJQRUVSX0FERFJFU1MiOiAiMjAwMDozMDAwOjQwMDA6NTAwMDo6MiIsCgkiUFJFRklYRVMiOiAiMiIsCgkiUFJFRklYMSI6ICIyMDAxOjIwMDI6MjAwMzoyMDA0OjpcLzQ4IiwKCSJQUkVGSVgyIjogIjIwMDU6MjAwNjoyMDA3OjIwMDg6OlwvNDgiCn0=
