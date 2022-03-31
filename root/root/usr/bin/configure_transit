@@ -28,7 +28,7 @@ function create_additional_session {
 
 function refresh_bird {
  set -o pipefail # optional.
-       /usr/sbin/bird6c configure soft;
+       /usr/sbin/birdc6 configure soft;
        /usr/sbin/birdc configure soft;
 }
 
