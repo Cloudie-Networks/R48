@@ -1,0 +1,13 @@
+#!/bin/bash
+
+/usr/bin/curl -s -4 https://app.route48.org/api/bgp_sessions/prefix_filters -o /opt/route48/bird/PREFIX/ALL_FILTERS_v6.conf
+/usr/bin/curl -s -4 https://app.route48.org/api/bgp_sessions/peers -o /opt/route48/bird/PEERS/ALL_TB_PEERS_v6.conf
+
+
+function refresh_bird {
+ set -o pipefail # optional.
+       /usr/sbin/birdc6 configure soft;
+       /usr/sbin/birdc configure soft;
+}
+
+refresh_bird
